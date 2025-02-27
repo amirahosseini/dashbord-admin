@@ -50,17 +50,48 @@ const newMember = [
         img : 'avatar'
     },
     {
-        id : 0 ,
+        id : 2 ,
         username : 'ali' ,
         title :"tester",
         img : 'avatar'
     },
     {
-        id : 0 ,
+        id : 3 ,
         username : 'Amir' ,
         title :"back end dev",
         img : 'avatar'
     }
     
 ]
-export {XaxisData , newMember}
+const transactions = [
+    {
+        id : 0 ,
+        name : "amir",
+        date : "12 aug 2023",
+        amount : "123$" ,
+        status  : "green"
+    },
+    {
+        id : 1 ,
+        name : "hosseini",
+        date : "12 jan 2023",
+        amount : "199$" ,
+        status  : "red"
+    },
+    {
+        id : 2 ,
+        name : "ali",
+        date : "24 dec 2023",
+        amount : "123$" ,
+        status  : "green"
+    },
+    {
+        id : 3 ,
+        name : "majid",
+        date : "11 oct 2023",
+        amount : "113$" ,
+        status  : "red"
+    },
+    
+]
+export {XaxisData , newMember, transactions}
