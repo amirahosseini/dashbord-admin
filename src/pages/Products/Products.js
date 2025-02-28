@@ -1,48 +1,40 @@
 import React, { useState } from 'react';
 import { DataGrid } from '@mui/x-data-grid';
-import { userRows } from "../../datas";
-import avatar from "../../assets/image/74.jpg";
 import { AiOutlineDelete, AiOutlineEdit } from "react-icons/ai";
 import { Link } from "react-router-dom";
+import avatar from "../../assets/image/74.jpg"; // Default image
+import {initialProducts} from "../../datas"
 
-export default function Users() {
-  const [userData, setUserData] = useState(userRows);
+export default function Products() {
+  const [productData, setProductData] = useState(initialProducts);
 
   // Delete function
   const handleDelete = (id) => {
-    setUserData(userData.filter(user => user.id !== id));
+    setProductData(productData.filter(product => product.id !== id));
   };
 
   const columns = [
     { field: "id", headerName: "ID", flex: 1 },
     {
-      field: "user",
-      headerName: "User",
+      field: "title",
+      headerName: "Product Name",
       flex: 2,
       renderCell: (params) => (
         <div className="flex items-center space-x-3">
-          <img src={avatar} alt="" className="w-10 h-10 rounded-full object-cover"/>
-          <span>{params.row.username}</span>
+          <img 
+            src={params.row.img || avatar} 
+            alt={params.row.title} 
+            className="w-10 h-10 rounded-full object-cover"
+          />
+          <span>{params.row.title}</span>
         </div>
       )
     },
     {
-      field: "amount",
-      headerName: "Amount",
+      field: "price",
+      headerName: "Price",
       flex: 1,
-      renderCell: (params) => <span>{params.row.amount || 'N/A'}</span>
-    },
-    {
-      field: "status",
-      headerName: "Status",
-      flex: 1,
-      renderCell: (params) => (
-        <span className={`px-3 py-1 rounded-lg text-white ${
-          params.row.status === "green" ? "bg-green-500" : "bg-red-500"
-        }`}>
-          {params.row.status || 'N/A'}
-        </span>
-      )
+      renderCell: (params) => <span>{params.row.price || 'N/A'}</span>
     },
     {
       field: "actions",
@@ -50,8 +42,8 @@ export default function Users() {
       flex: 1,
       renderCell: (params) => (
         <div className="flex items-center space-x-4">
-          {/* Edit Button - Navigates to /user/:id */}
-          <Link to={`/user/${params.row.id}`} className="text-blue-500 hover:text-blue-700">
+          {/* Edit Button - Navigates to /product/:id */}
+          <Link to={`/product/${params.row.id}`} className="text-blue-500 hover:text-blue-700">
             <AiOutlineEdit size={20} />
           </Link>
           {/* Delete Button */}
@@ -67,7 +59,7 @@ export default function Users() {
     <div className="w-full h-screen flex flex-col p-5 overflow-hidden">
       <div className="flex-grow">
         <DataGrid 
-          rows={userData}
+          rows={productData}
           columns={columns}
           pageSize={5}
           disableSelectionOnClick

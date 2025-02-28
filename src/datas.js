@@ -91,7 +91,48 @@ const transactions = [
         date : "11 oct 2023",
         amount : "113$" ,
         status  : "red"
-    },
-    
+    },   
 ]
-export {XaxisData , newMember, transactions}
+const userRows = [
+    {
+        id : 0 ,
+        username : 'Amir' ,
+        img : 'avatar',
+        amount : "113$" ,
+        status  : "red",
+        img : "avatar"
+    },
+    {
+        id : 1 ,
+        username : 'hosseini' ,
+        img : 'avatar',
+        amount : "123$" ,
+        status  : "green"
+    },
+    {
+        id : 2 ,
+        username : 'ali' ,
+        img : 'avatar'
+
+    },
+    {
+        id : 3 ,
+        username : 'Amir' ,
+        img : 'avatar',
+        status : "green",
+        amount : "199$" ,
+        status  : "red"
+    }
+]
+const initialProducts = [
+    { id: 1, title: "Dell", img: "", price: "600$" },
+    { id: 2, title: "Lenovo", img: "", price: "400$" },
+    { id: 3, title: "Mac", img: "", price: "1200$" }
+];
+const productData = [
+    {name : 'jan' , sales : 300},
+    {name : 'feb' , sales : 250},
+    {name : 'march' , sales : 120},
+    {name : 'apr' , sales : 500}
+]
+export {XaxisData , newMember, transactions , userRows ,initialProducts , productData}
